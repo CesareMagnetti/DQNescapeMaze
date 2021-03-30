@@ -7,7 +7,7 @@ This is a personal project aiming to train a RL agent using Deep Q-Learning to e
 </div>
 <div align="right">
     <img width="40%" src="readme_images/getting_good.gif", alt="right: late training stages, mostly exploitation."
-</div>
+</div><br>
 
 ## Installation
 
