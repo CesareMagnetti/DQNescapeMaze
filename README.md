@@ -3,10 +3,10 @@
 This is a personal project aiming to train a RL agent using Deep Q-Learning to escape a randomly generated maze. Performance was found to be acceptable but it is not the best, especially when setting the epsilon greedy parameter to zero. There is room for much improvement, see the two anymation below for insights of the agent undergoing exploration in the early traing stages and exploiting the gained knowledge further in the training.
 
 <div align="left">
-    <img width="45%" src="readme_images/early_episodes.gif", alt="left: early training stages, mostly exploration."
+    <img width="40%" src="readme_images/early_episodes.gif", alt="left: early training stages, mostly exploration."
 </div>
 <div align="left">
-    <img width="45%" src="readme_images/getting_project.gif", alt="left: late training stages, mostly exploitation."
+    <img width="40%" src="readme_images/getting_good.gif", alt="left: late training stages, mostly exploitation."
 </div>
 
 ## Installation
