@@ -6,7 +6,7 @@ import argparse
 
 # parsing arguments
 parser = argparse.ArgumentParser(description='train an agent using DQN to escape a randomly built maze.')
-parser.add_argument('--train_time', '-t',  type=int, default=600, help='training time (in seconds).')
+parser.add_argument('--train_time', '-t',  type=int, default=600, help='training time (in seconds). (default = 600, 10 minutes)')
 parser.add_argument('--display', action='store_true', help='flag to display the environment at every step.')
 parser.add_argument('--display_after',  type=int, default=None, help='if display was flagged, set how much time (second to go through\n'
                                                                   ' before starting to display results on screen. (code will be faster)')
@@ -18,31 +18,33 @@ parser.add_argument('--DoubleQLearning', action='store_true', help='if using dou
                                                                    'if this argument is passed --QLearning will be set to False.')
 parser.add_argument('--QLearning', action='store_true', help='if using QLearning strategy (without target network).\n'
                                                              'if this argument is parsed, --DoubleQLearning will be se to False.')
-parser.add_argument('--learning_rate', '-lr',  type=float, default=0.0002, help='learning rate for the Q network.')
-parser.add_argument('--delay', type=int, default=500, help='delay (in steps) after which the target network is updated.')
+parser.add_argument('--learning_rate', '-lr',  type=float, default=0.0002, help='learning rate for the Q network. (default = 0.0002)')
+parser.add_argument('--delay', type=int, default=500, help='delay (in steps) after which the target network is updated. (default = 500)')
 
 # controls agent
 parser.add_argument('--episode_length',  type=int, default=1000, help='maximum number of steps in an episode. (default = 1000)')
-parser.add_argument('--episode_length_decay_rate',  type=float, default=0.025, help='rate of decay of the episode length. (default = 2.5%)')
+parser.add_argument('--episode_length_decay_rate',  type=float, default=0.025, help='rate of decay of the episode length. (default = 2.5%%)')
 parser.add_argument('--epsilon',  type=float, default=1, help='intial value of epsilon for egreedy policy (in [0,1]). (default = 1.0)')
-parser.add_argument('--epsilon_decay_rate',  type=float, default=0.025, help='rate of decay of epsilon for egreedy policy. (default = 2.5%)')
+parser.add_argument('--epsilon_decay_rate',  type=float, default=0.025, help='rate of decay of epsilon for egreedy policy. (default = 2.5%%)')
 parser.add_argument('--discount', '-d',  type=float, default=0.999, help='discount factor for future rewards. (default = 0.999)')
 
 # controls buffer
-parser.add_argument('--buffer_capacity',  type=int, default=5000, help='maximum length (capacity) for the replay buffer.')
-parser.add_argument('--batch_size', '-bs',  type=int, default=128, help='batch size to train the Q-network.')
-parser.add_argument('--alpha',  type=float, default=0.01, help='hyperparamter for prioritised sampling in (0,1). (default = 1%)')
+parser.add_argument('--buffer_capacity',  type=int, default=5000, help='maximum length (capacity) for the replay buffer. (default = 5000)')
+parser.add_argument('--batch_size', '-bs',  type=int, default=128, help='batch size to train the Q-network. (default = 128)')
+parser.add_argument('--alpha',  type=float, default=0.01, help='hyperparamter for prioritised sampling in (0,1). (default = 1%%)')
 parser.add_argument('--prioritised_experience', action='store_true', help='flag to use prioritised replay sampling. (default = False)')
-args = vars(parser.parse_args())
+args = parser.parse_args()
 
 # Main entry point
 if __name__ == "__main__":
-
+    args = vars(args)
     display = args.pop('display')
     display_after = args.pop('display_after')
     if display_after:
         print("waiting %d seconds before displaying environment."%display_after)
         display = True
+    else:
+        display_after = 0
 
     train_time = args.pop('train_time')
     # Create a random environment fixing the random seed
