@@ -6,7 +6,7 @@ This is a personal project aiming to train a RL agent using Deep Q-Learning to e
 <img align="left" width="45%" src="readme_images/early_episodes.gif" alt="left: early training stages, mostly exploration."
 title="left: early training stages, mostly exploration.">
 
-<img align="right" width="45%" src="readme_images/getting_good.gif", alt="right: late training stages, mostly exploitation."
+<img align="right" width="45%" src="readme_images/getting_good.gif" alt="right: late training stages, mostly exploitation."
 title="right: late training stages, mostly exploitation.">
 
 <br><br>
