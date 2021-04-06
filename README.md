@@ -9,7 +9,9 @@ title="left: early training stages, mostly exploration.">
 
 <img align="right" width="49%" src="readme_images/getting_good.gif", alt="right: late training stages, mostly exploitation."
 title="right: late training stages, mostly exploitation.">
-</p><br><br>
+</p>
+
+<br><br>
 
 ## Installation
 
